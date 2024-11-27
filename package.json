@@ -1,0 +1,15 @@
+{
+  "name": "flight-booking-backend",
+  "version": "1.0.0",
+  "description": "This is flight booking backend for book plan ticket booking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flight",
+    "booking"
+  ],
+  "author": "MD SAZIBUR RAHMAN",
+  "license": "ISC"
+}
