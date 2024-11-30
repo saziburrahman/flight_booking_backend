@@ -24,6 +24,7 @@ exports.register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      role:"Admin"
     });
     res.status(201).json({ message: "User registered successfully", user });
   } catch (error) {
@@ -50,6 +51,20 @@ exports.login = async (req, res) => {
     delete userResponse.password;
 
     res.status(200).json({ token, user: userResponse });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json(user);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

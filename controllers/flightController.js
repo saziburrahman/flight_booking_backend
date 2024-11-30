@@ -66,8 +66,30 @@ exports.getFlightById = async (req, res) => {
 };
 
 exports.addFlight = async (req, res) => {
+  const {
+    flightNumber,
+    airline,
+    origin,
+    destination,
+    date,
+    time,
+    price,
+    availableSeats,
+    duration,
+  } = req.body;
+
   try {
-    const flight = await Flight.create(req.body);
+    const flight = await Flight.create({
+      flightNumber,
+      airline,
+      origin,
+      destination,
+      date,
+      time,
+      price,
+      availableSeats,
+      duration,
+    });
     res.status(201).json(flight);
   } catch (error) {
     res.status(400).json({ error: error.message });
