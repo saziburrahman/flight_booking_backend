@@ -4,7 +4,7 @@
   "description": "This is flight booking backend for book plan ticket booking",
   "main": "index.js",
   "engines": {
-    "node": "21.7.3"
+    "node": "22.*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
