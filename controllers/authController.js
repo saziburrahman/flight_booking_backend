@@ -33,6 +33,10 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  console.log("Login Controller called");
+  console.log("JWT secret",process.env.JWT_SECRET);
+  
+  
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -47,6 +51,8 @@ exports.login = async (req, res) => {
         expiresIn: "1d",
       }
     );
+    console.log("Login Token");
+    
     const userResponse = user.toObject();
     delete userResponse.password;
 
