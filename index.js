@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://flight-booking-app-2024.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
